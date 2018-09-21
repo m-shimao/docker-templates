@@ -1,0 +1,16 @@
+version: '2.3'
+
+services:
+  develop:
+    image: mshimao/tensorflow-latest-devel-gpu-py3-ssh
+    build: ../..//DockerFiles/tensorflow-gpu-ssh
+    runtime: nvidia
+    ports:
+      - 'xxxx:6006'
+      - 'xxxx:8888'
+      - 'xxxx:22'
+    volumes:
+      - /path-to-volume/:/root/volume
+      - /path-to-data:/data
+    command: /sbin/init
+    privileged: true
