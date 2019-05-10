@@ -1,0 +1,20 @@
+version: '2.3'
+
+services:
+  develop:
+    container_name: shimao-tf
+    image: mshimao/tensorflow-latest-devel-gpu-py3
+    build: ../..//DockerFiles/tensorflow-gpu
+    runtime: nvidia
+    ipc: host
+    ports:
+      - 'xxxx:6006'
+      - 'xxxx:8888'
+    volumes:
+      - /path-to-volume/:/root/volume
+      - /path-to-data:/data
+    command: /usr/local/bin/jupyter-notebook --allow-root --ip="0.0.0.0"
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - label:disable
