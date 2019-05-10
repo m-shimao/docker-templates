@@ -1,7 +1,7 @@
 version: '2.3'
 
 services:
-  shimao:
+  pytorch_dev:
     container_name: shimao-pytorch
     image: mshimao/pytorch-latest
     build: ../../Dockerfiles/pytorch

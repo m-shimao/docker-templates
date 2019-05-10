@@ -4,7 +4,7 @@ services:
   develop:
     container_name: shimao-tf
     image: mshimao/tensorflow-latest-devel-gpu-py3
-    build: ../..//DockerFiles/tensorflow-gpu
+    build: ../..//Dockerfiles/tensorflow-gpu
     runtime: nvidia
     ipc: host
     ports:
