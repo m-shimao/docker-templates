@@ -1,0 +1,20 @@
+version: '2.3'
+
+services:
+  chainer_dev:
+    container_name: shimao-chainer
+    image: mshimao/chainer
+    build: ../../Dockerfiles/chainer
+    runtime: nvidia
+    ipc: host
+    ports:
+      - 'port-to-tensorboard:6006'
+      - 'port-to-jupyternotebook:8888'
+    volumes:
+      - /path-to-volume:/root/volume
+      - /path-to-data:/data
+    command: /usr/local/bin/jupyter-notebook --allow-root --ip="0.0.0.0"
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - label:disable
