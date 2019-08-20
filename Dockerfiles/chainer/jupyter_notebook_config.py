@@ -5,6 +5,7 @@ c = c
 c.NotebookApp.ip = '0.0.0.0'
 c.NotebookApp.port = int(os.getenv('PORT', 8888))
 c.NotebookApp.open_browser = False
+c.NotebookApp.iopub_msg_rate_limit=10000.0
 
 if 'PASSWORD' in os.environ:
   password = os.environ['PASSWORD']

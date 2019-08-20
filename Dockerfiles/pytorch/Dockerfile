@@ -20,7 +20,7 @@ RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
     apt-get clean
 
 RUN pip install --upgrade pip
-RUN pip install \
+RUN pip install -U \
 	opencv-python \
 	Cython \
 	pillow \
@@ -30,7 +30,9 @@ RUN pip install \
     tqdm \
     albumentations \
     pandas \
-    scikit-learn
+    scikit-learn \
+    torch \
+    torchvision
 
 # 日本語化
 RUN apt-get install -y --no-install-recommends \

@@ -15,12 +15,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         && \
     apt-get clean
 
-RUN pip install --upgrade pip
-RUN pip install \
+RUN pip install -U \
+        pip \
         opencv-python \
         Cython \
         pillow \
-        xlrd
+        xlrd \
+        matplotlib
+
+# matplotlibで日本語を使うため
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        fonts-ipaexfont \ 
+        && \
+    apt-get clean
 
 # 日本語化
 RUN apt-get install -y --no-install-recommends \
