@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  flask:
+    container_name: mshimao-flask
+    image: mshimao/flask
+    build: ../../Dockerfiles/flask
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./src:/var/wwww/flask
+    command: flask run --host 0.0.0.0 --port 5000
+    # command: env FLASK_APP=src/app.py flask run --host 0.0.0.0 --port 5000
